@@ -28,7 +28,7 @@ Role:
 Why this repository qualifies? Maximum 500 characters:
 
 ```text
-oss-maintainer-toolbelt is a dependency-free CLI for small OSS maintainers. It automates release and repository-health chores: changelog drafts from Conventional Commits, .env drift checks, issue-template linting and maintenance reports. It is early-stage but directly targets recurring maintainer workflows and is designed for CI use.
+oss-maintainer-toolbelt is a dependency-free CLI for small OSS maintainers. It automates release and repository-health chores: changelog drafts, .env drift checks, issue-template linting and maintenance reports. The repo includes tests, CI, issue templates, roadmap, changelog and a v0.1.0 tag.
 ```
 
 I am interested in:
@@ -44,16 +44,15 @@ OpenAI organization ID:
 How would you use API credits in the project? Maximum 500 characters:
 
 ```text
-I would add optional OpenAI-powered maintainer workflows: issue and pull-request triage summaries, release-note drafting from merged PRs, contributor-facing setup diagnostics, and security-review checklists. API use would remain optional, documented and scoped to repository maintenance tasks.
+I would add optional OpenAI-powered maintainer workflows: issue and pull-request triage summaries, release-note drafting from merged PRs, contributor setup diagnostics and security-review checklists. API use would stay optional, documented and scoped to OSS maintenance tasks.
 ```
 
 Anything else we should know? Maximum 500 characters:
 
 ```text
-The project was created as a practical maintainer utility and will stay public under MIT. The current version is intentionally dependency-free so maintainers can run it locally or in CI. Planned next steps are GitHub API triage mode, markdown reports, configurable required-doc checks and a pre-release checklist.
+The project is public under MIT and intentionally dependency-free, so maintainers can run it locally or in CI. It already has a first release tag, docs for maintainer workflows and an example GitHub Actions setup. Next steps: GitHub API triage mode, markdown reports and pre-release checklists.
 ```
 
 ## Important honesty note
 
 Do not claim stars, downloads, long-term usage, or broad adoption until those are true. The strongest accurate positioning is that this is an early-stage OSS maintainer tool with a clear roadmap and real working code.
-
