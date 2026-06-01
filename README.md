@@ -50,6 +50,12 @@ omt template-lint .github/ISSUE_TEMPLATE
 
 Every command supports `--json` for automation.
 
+## Maintainer docs
+
+- [Maintainer workflows](docs/MAINTAINER_WORKFLOWS.md)
+- [Roadmap](docs/ROADMAP.md)
+- [Changelog](CHANGELOG.md)
+
 ## Why maintainers might use it
 
 Small projects often miss the lightweight checks that larger maintainership teams automate:
@@ -63,12 +69,15 @@ This tool keeps those checks local, transparent, and easy to run in CI.
 
 ## Roadmap
 
-- GitHub API mode for open issue and pull request triage summaries.
-- Markdown output for repository reports.
-- Config file support for project-specific required docs.
-- Pre-release checklist generation.
+The short version:
+
+- configurable repository health checks;
+- markdown output for reports;
+- pre-release checklist generation;
+- optional GitHub API and OpenAI-assisted triage workflows.
+
+See [docs/ROADMAP.md](docs/ROADMAP.md) for the fuller plan.
 
 ## License
 
 MIT
-
