@@ -8,6 +8,7 @@
 omt report .
 omt changelog . --since v0.1.0
 omt template-lint .github/ISSUE_TEMPLATE
+omt preflight . --since v0.1.0
 ```
 
 Use the report to confirm core project files are present, then paste the changelog draft into release notes.
@@ -27,4 +28,3 @@ omt template-lint .github/ISSUE_TEMPLATE --json
 ```
 
 JSON output is useful for CI annotations, bots, or project dashboards.
-

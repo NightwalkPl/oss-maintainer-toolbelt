@@ -16,4 +16,4 @@ jobs:
       - run: python -m pip install oss-maintainer-toolbelt
       - run: omt report . --json
       - run: omt template-lint .github/ISSUE_TEMPLATE
-
+      - run: omt preflight .

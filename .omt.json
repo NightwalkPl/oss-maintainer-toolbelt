@@ -1,0 +1,12 @@
+{
+  "required_docs": [
+    "README.md",
+    "LICENSE",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "CODE_OF_CONDUCT.md",
+    "CHANGELOG.md",
+    "docs/ROADMAP.md"
+  ],
+  "issue_template_path": ".github/ISSUE_TEMPLATE"
+}

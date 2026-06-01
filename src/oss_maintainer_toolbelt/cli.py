@@ -7,6 +7,7 @@ from pathlib import Path
 
 from .changelog import build_changelog
 from .envcheck import compare_env_files
+from .preflight import build_preflight_checklist
 from .report import build_repo_report
 from .templates import lint_issue_templates
 
@@ -24,7 +25,9 @@ def main(argv: list[str] | None = None) -> int:
 
     report = subparsers.add_parser("report", help="Summarize repository maintenance signals.")
     report.add_argument("path", nargs="?", default=".", help="Repository path.")
+    report.add_argument("--config", help="Path to .omt.json config.")
     report.add_argument("--json", action="store_true", help="Emit JSON.")
+    report.add_argument("--markdown", action="store_true", help="Emit Markdown.")
 
     changelog = subparsers.add_parser("changelog", help="Build changelog text from git commits.")
     changelog.add_argument("path", nargs="?", default=".", help="Repository path.")
@@ -41,12 +44,20 @@ def main(argv: list[str] | None = None) -> int:
     templates.add_argument("path", nargs="?", default=".github/ISSUE_TEMPLATE", help="Template directory.")
     templates.add_argument("--json", action="store_true", help="Emit JSON.")
 
+    preflight = subparsers.add_parser("preflight", help="Build a pre-release maintainer checklist.")
+    preflight.add_argument("path", nargs="?", default=".", help="Repository path.")
+    preflight.add_argument("--since", help="Oldest git revision to include in the changelog draft.")
+    preflight.add_argument("--config", help="Path to .omt.json config.")
+    preflight.add_argument("--json", action="store_true", help="Emit JSON.")
+
     args = parser.parse_args(argv)
 
     if args.command == "report":
-        data = build_repo_report(Path(args.path))
+        data = build_repo_report(Path(args.path), config_path=Path(args.config) if args.config else None)
         if args.json:
             _print_json(data)
+        elif args.markdown:
+            print(data["markdown"])
         else:
             print(data["summary"])
         return 0
@@ -75,10 +86,21 @@ def main(argv: list[str] | None = None) -> int:
             print(data["summary"])
         return 1 if data["problems"] else 0
 
+    if args.command == "preflight":
+        data = build_preflight_checklist(
+            Path(args.path),
+            since=args.since,
+            config_path=Path(args.config) if args.config else None,
+        )
+        if args.json:
+            _print_json(data)
+        else:
+            print(data["markdown"])
+        return 0 if data["passed"] else 1
+
     parser.print_help(sys.stderr)
     return 2
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

@@ -4,9 +4,9 @@ This roadmap focuses on maintainer workflows that are useful for small and mid-s
 
 ## 0.2.0
 
-- Add configurable required documentation checks.
-- Add markdown output for `omt report`.
-- Add a pre-release checklist command.
+- Expand configurable required documentation checks.
+- Improve markdown output for `omt report`.
+- Expand the pre-release checklist command.
 - Add examples for GitHub Actions integration.
 
 ## 0.3.0
@@ -20,4 +20,3 @@ This roadmap focuses on maintainer workflows that are useful for small and mid-s
 - Optional OpenAI-assisted summaries for triage and release work.
 - Security review checklist generation.
 - Project-specific configuration file.
-

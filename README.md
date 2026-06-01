@@ -5,9 +5,11 @@
 It focuses on checks that are useful before releases, during repository cleanup, and while reviewing contributor experience:
 
 - repository maintenance report;
+- configurable required documentation checks;
 - changelog draft from Conventional Commits;
 - `.env` drift check against `.env.example`;
-- GitHub issue template linting.
+- GitHub issue template linting;
+- pre-release checklist generation.
 
 ## Install
 
@@ -28,6 +30,7 @@ Generate a repository report:
 
 ```bash
 omt report .
+omt report . --markdown
 ```
 
 Draft a changelog from commits:
@@ -48,7 +51,24 @@ Lint GitHub issue templates:
 omt template-lint .github/ISSUE_TEMPLATE
 ```
 
+Build a pre-release checklist:
+
+```bash
+omt preflight . --since v0.1.0
+```
+
 Every command supports `--json` for automation.
+
+## Configuration
+
+Create `.omt.json` in the repository root:
+
+```json
+{
+  "required_docs": ["README.md", "LICENSE", "CONTRIBUTING.md", "SECURITY.md"],
+  "issue_template_path": ".github/ISSUE_TEMPLATE"
+}
+```
 
 ## Maintainer docs
 
